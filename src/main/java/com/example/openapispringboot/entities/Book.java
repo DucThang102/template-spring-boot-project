@@ -2,6 +2,7 @@ package com.example.openapispringboot.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,7 +16,7 @@ import javax.validation.constraints.Size;
 public class Book {
 
     @Id
-    private long id;
+    private ObjectId id;
 
     @NotBlank
     @Size(min = 0, max = 20)

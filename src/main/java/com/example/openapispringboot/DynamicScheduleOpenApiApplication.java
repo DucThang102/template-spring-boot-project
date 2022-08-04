@@ -15,13 +15,13 @@ public class DynamicScheduleOpenApiApplication {
 
     @Autowired
     private CronJobRepository cronJobRepository;
-
-    @Bean
-    public String getCronValue() {
-        String cronTime = cronJobRepository.findById(0L).get().getValue();
-        System.out.println("getCronValue " + cronTime);
-        return cronTime;
-    }
+//
+//    @Bean
+//    public String getCronValue() {
+//        String cronTime = cronJobRepository.findById(0L).get().getValue();
+//        System.out.println("getCronValue " + cronTime);
+//        return cronTime;
+//    }
 
     public static void main(String[] args) {
         SpringApplication.run(DynamicScheduleOpenApiApplication.class, args);

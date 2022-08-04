@@ -2,11 +2,13 @@ package com.example.openapispringboot.controllers;
 
 import com.example.openapispringboot.entities.CronJob;
 import com.example.openapispringboot.repositories.CronJobRepository;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.webjars.NotFoundException;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("cron-jobs")
@@ -18,5 +20,25 @@ public class CronJobController {
     @PostMapping("")
     public CronJob createCronJob(@RequestBody CronJob cronJob) {
         return cronJobRepository.save(cronJob);
+    }
+
+    @GetMapping("")
+    public List<CronJob> getCronJobs() {
+        return cronJobRepository.findAll();
+    }
+
+    @PutMapping("/{id}")
+    public CronJob updateCronJob(@PathVariable("id") String id, @RequestBody CronJob cronJob) {
+        if (cronJobRepository.existsById(new ObjectId(id))) {
+            return cronJobRepository.save(cronJob);
+        } else {
+            throw new NotFoundException("Not found id " + id);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteCronJob(@PathVariable("id") String id) {
+        cronJobRepository.deleteById(new ObjectId(id));
     }
 }
