@@ -1,6 +1,6 @@
 package com.example.openapispringboot.services.dtos;
 
-import com.example.openapispringboot.exceptions.StatusCode;
+import com.example.openapispringboot.enumable.StatusCode;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;

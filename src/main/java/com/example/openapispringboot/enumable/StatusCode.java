@@ -1,4 +1,4 @@
-package com.example.openapispringboot.exceptions;
+package com.example.openapispringboot.enumable;
 
 public enum StatusCode {
 

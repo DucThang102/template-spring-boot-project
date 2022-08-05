@@ -1,5 +1,6 @@
 package com.example.openapispringboot.exceptions;
 
+import com.example.openapispringboot.enumable.StatusCode;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import lombok.Getter;
 import lombok.Setter;

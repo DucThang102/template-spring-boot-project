@@ -1,5 +1,6 @@
 package com.example.openapispringboot.exceptions;
 
+import com.example.openapispringboot.enumable.StatusCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
