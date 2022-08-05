@@ -1,3 +1,3 @@
 # dynamic-cron-job
 
-example config cron job dynamic on runtime, config open api
+example config cron job dynamic on runtime, config open api, global exception
