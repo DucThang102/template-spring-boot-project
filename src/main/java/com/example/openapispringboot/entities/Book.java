@@ -13,10 +13,7 @@ import javax.validation.constraints.Size;
 @Document
 @Getter
 @Setter
-public class Book {
-
-    @Id
-    private ObjectId id;
+public class Book extends BaseEntity{
 
     @NotBlank
     @Size(min = 0, max = 20)

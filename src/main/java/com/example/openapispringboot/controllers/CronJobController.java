@@ -1,12 +1,12 @@
 package com.example.openapispringboot.controllers;
 
 import com.example.openapispringboot.entities.CronJob;
+import com.example.openapispringboot.exceptions.NotFoundException;
 import com.example.openapispringboot.repositories.CronJobRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.webjars.NotFoundException;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class CronJobController {
         if (cronJobRepository.existsById(new ObjectId(id))) {
             return cronJobRepository.save(cronJob);
         } else {
-            throw new NotFoundException("Not found id " + id);
+            throw new NotFoundException();
         }
     }
 
