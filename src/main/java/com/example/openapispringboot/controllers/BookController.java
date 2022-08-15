@@ -21,7 +21,7 @@ public class BookController {
     @Autowired
     private BookRepository repository;
 
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseData<Book> createBook(@RequestBody Book book) {
         ResponseData<Book> responseData = new ResponseData<>();
         Book savedBook = repository.save(book);
@@ -42,7 +42,7 @@ public class BookController {
         return responseData;
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseData<List<Book>> findBooks() {
         ResponseData<List<Book>> responseData = new ResponseData<>();
         List<Book> bookList =  repository.findAll();
