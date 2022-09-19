@@ -21,26 +21,9 @@
         </filter>
     </appender>
 
-    <appender name="application" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${HOME_LOG_PATH}/application.log</file>
-
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <!-- rollover daily and when the file reaches 10 MegaBytes -->
-            <fileNamePattern>${HOME_LOG_PATH}/archived/application.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <!-- each archived file, size max 10MB -->
-            <maxFileSize>10MB</maxFileSize>
-        </rollingPolicy>
-
-        <encoder>
-            <pattern>%d %p %c{1.} [%t] %L %m%n</pattern>
-        </encoder>
-    </appender>
-
-
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="logstash" />
         <appender-ref ref="consoleAppender" />
-        <appender-ref ref="application" />
     </root>
 
 </configuration>
