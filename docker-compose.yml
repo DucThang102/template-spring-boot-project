@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  spring-boot-application:
+    build: .
+    image: spring-boot-application
+    restart: always
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=prod
+#      - SPRING_DATASOURCE_URL=mongodb://localhost:27017/my-application
+    ports:
+      - 8082:8082
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo:latest
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=
+      - MONGO_INITDB_ROOT_PASSWORD=
+    ports:
+      - 27017:27017
