@@ -2,6 +2,15 @@
 <configuration>
     <property name="HOME_LOG_PATH" value="${LOG_FOLDER:-logs}"/>
 
+    <appender name="logstash" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logback/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logback/archived/redditApp.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+    </appender>
+
     <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <Pattern>.%d{HH:mm:ss.SSS} [%thread] %L %-5level %logger{36} - %msg %n
@@ -28,7 +37,8 @@
     </appender>
 
 
-    <root level="info">
+    <root level="DEBUG">
+        <appender-ref ref="logstash" />
         <appender-ref ref="consoleAppender" />
         <appender-ref ref="application" />
     </root>
